@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9;
+    TextView p1Score, p2Score;
+    int p1=0, p2=0;
     int flag = 0;
     int count = 0;
     @Override
@@ -71,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     void gameState(String s){
+        if(s.equals("X")){
+            p1++;
+            p1Score.setText(String.format("%s",p1));
+        } else{
+            p2++;
+            p2Score.setText(String.format("%s",p2));
+        }
         Toast.makeText(this, s+" is Winner!", Toast.LENGTH_SHORT).show();
     }
     void gameRestart(String s){
@@ -112,5 +121,8 @@ public class MainActivity extends AppCompatActivity {
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
+
+        p1Score = findViewById(R.id.txtP1Score);
+        p2Score = findViewById(R.id.txtP2Score);
     }
 }
